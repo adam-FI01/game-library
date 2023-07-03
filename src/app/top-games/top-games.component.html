@@ -1,0 +1,30 @@
+<!-- <div class="card-group">
+  <div id="col-3" class="row row-cols-3">
+    <div id="col-4" class="col-md-6 col-lg-4" *ngFor="let game of games">
+      <app-img-card [cardText]="game.name" [cardImg]="game.background_image"></app-img-card>
+    </div>
+</div>
+</div> -->
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" *ngFor="let game of games; let i = index" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i+1)"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let game of games; let i = index" [class.active]="i === 0">
+      <img [src]="game.background_image" class="d-block w-100" alt="Game Image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{game.name}}</h5>
+        <!-- Add any additional game-related data here -->
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
